@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+    <form id="login-form" class="d-flex flex-column p-3 gap-3 justify-content-center mx-auto mt-5 shadow rounded" style="max-width:600px; width:100%">
+        <h1>Login</h1>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="UserId" name="userId" />
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" name="userPassword" />
+        </div>
+        <button class="btn btn-primary">Login</button>
+    </form>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+
+        const loginForm = document.querySelector('#login-form')
+
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userId = e.target.userId.value;
+            const password = e.target.userPassword.value;
+
+            const BASE_URL = "https://tradeapiuat.jmfonline.in:9190/api/v2/Login";
+            
+            uniqDate.now().toString(36) + Math.random().toString(36).substr(2)
+
+            const payLoad = {
+                {
+                    LoginID  : userid,
+                    Password  : "abc123",
+                    Dob : "01011980",
+                    Pan : "BRRPA4970L",
+                    imei : "1234567890",
+                    LoginDevice : "Android",
+                    ApkVersion : "1.0.2",
+                    Source : "MOB",
+                    DevId : "1234",
+                    factortwo : ""
+                }
+            }
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.parse()
+            })
+            
+            console.log({userId, password})
+        })
+    })
+
+    </script>
+  </body>
+</html>

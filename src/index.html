@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <input type="text" id="enc" placeholder="Input"><br>
+    <button onclick="enc()">Encrypt</button>
+    <button onclick="dec()" >Decrypt</button><br>
+    <input type="text" id="dec" placeholder="Output">
+
+    <script>
+        const key = '9J3FsEabRLOvRzPbK6sVBf3Y9vqDvcKG';
+
+        function enc() {
+            const plainText = document.querySelector("#enc").value
+            var encData = CryptoJS.AES.encrypt(plainText, key, {
+                mode: CryptoJS.mode.ECB,
+                padding: CryptoJS.pad.Pkcs7 
+            });
+            console.log(encData.toString())
+        }
+
+        function dec() {
+            const encData = document.querySelector("#dec").value
+            var encryptedBytes = CryptoJS.AES.decrypt(encData, key, {
+                mode: CryptoJS.mode.ECB,
+                padding: CryptoJS.pad.Pkcs7 
+            }).toString(CryptoJS.enc.Utf8);
+            console.log(encryptedBytes)
+        }
+    </script>
+</body>
+</html>
+
+<!-- // To print or store the binary data, you may convert it to hex
+var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
+console.log(encryptedHex);
+
+
+
+// When ready to decrypt the hex string, convert it back to bytes
+var encryptedBytes = aesjs.utils.hex.toBytes(encryptedHex);
+
+// Since electronic codebook does not store state, we can
+// reuse the same instance.
+//var aesEcb = new aesjs.ModeOfOperation.ecb(key);
+var decryptedBytes = aesEcb.decrypt(encryptedBytes);
+
+// Convert our bytes back into text
+var decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes);
+console.log(decryptedText); -->
